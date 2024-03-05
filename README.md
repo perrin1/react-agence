@@ -1,2 +1,11 @@
-# react-agence
- un mini prijet react pour une agence  neutre 
+# React Agence
+
+Un mini projet pour la vitrine d'une agence 
+
+## Pour prende en main:
+
+npm install
+
+npm run dev
+
+

@@ -10,3 +10,8 @@ header {
 .btn-primary {
     @apply px-7 py-2 bg-neutralPrimary text-white rounded-lg hover:bg-neutral-800 transition-all duration-300 hover:-translate-y-4
 }
+
+/* #service.scrolling {
+    transition: transform 0.5s ease-in-out;
+    transform: translateY(-50px); /* Ajustez la valeur selon vos besoins 
+  } */

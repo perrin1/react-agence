@@ -2,7 +2,7 @@ import React from "react";
 
 const Products = () => {
   return (
-    <section>
+    <section id="product" >
       <div className="text-center m-4">
         <h2 className="text-4xl font-semibold  text-neutralDGrey">
           Nos Produits{" "}

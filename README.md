@@ -4,8 +4,8 @@ Un mini projet pour la vitrine d'une agence
 
 ## Pour prende en main:
 
-npm install
+### npm install
 
-npm run dev
+### npm run dev
 
 

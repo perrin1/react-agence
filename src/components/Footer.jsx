@@ -88,7 +88,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3  gap-8 xl:col-span-2 xl:mt-0">
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3  gap-8 xl:col-span-2 xl:mt-0">
             <div className="mt-10 md:mt-0">
               <h3 className="text-xl font-semibold leading-6 text-white">
                 Support
@@ -185,7 +185,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-16 border-t border-gray-100/10 pt-8 sm:mt-20 lg:mt-24">
+        <div className="mt-10 border-t border-gray-100/10 pt-8 ">
           <p className="text-2xl leading-5 text-gray-50">
             &copy; 2024 Your Company, Inc. All rights reserved.
           </p>

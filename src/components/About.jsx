@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import about from "../assets/about.jpg";
 
 const About = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition1, setScrollPosition1] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.scrollY;
+      setScrollPosition(position);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    const handleScroll1 = () => {
+      const position = window.scrollY;
+      setScrollPosition1(position);
+    };
+
+    window.addEventListener("scroll", handleScroll1, { passive: true });
+
+      
+    return () => {
+      window.removeEventListener("scroll", handleScroll1);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
+
+
   return (
-    <section>
+    <section id="about">
       <div className="text-center m-2">
         <h2 className="text-4xl font-semibold  text-neutralDGrey">À propos </h2>
         <p className="text-neutralDGrey"></p>
@@ -12,7 +39,13 @@ const About = () => {
       <div className="bg-white relative   flex items-center  mx-auto justify-center overflow-hidden z-50 ">
         <div className="relative mx-auto h-full px-4  pb-20   md:pb-10 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
           <div className="flex flex-col items-center justify-between lg:flex-row py-4">
-            <div className=" relative ">
+            <div
+              className={`transition-transform duration-700 ease-in-out ${
+                scrollPosition > 100
+                  ? "translate-x-0 lg:translate-x-32"
+                  : "-translate-x-full lg:translate-x-0"
+              } relative`}
+            >
               <div className="lg:max-w-xl lg:pr-5 relative z-40">
                 <h2 className="mb-6 max-w-lg text-5xl font-light leading-snug tracking-tight text-g1 sm:text-7xl sm:leading-snug">
                   We make you look
@@ -55,7 +88,14 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="relative hidden lg:ml-32 lg:block lg:w-1/2">
+
+            <div
+              className={`transition-transform duration-700 ease-in-out ${
+                scrollPosition > 100
+                  ? "translate-x-0 lg:translate-x-0"
+                  : "translate-x-full lg:translate-x-32"
+              } relative hidden lg:ml-32 lg:block lg:w-1/2`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="my-6 mx-auto h-10 w-10 animate-bounce rounded-full bg-white p-2 lg:hidden"
@@ -70,7 +110,7 @@ const About = () => {
                   d="M16 17l-4 4m0 0l-4-4m4 4V3"
                 ></path>
               </svg>
-              <div className="abg-orange-400 mx-auto w-fit overflow-hidden rounded-[6rem] rounded-br-none rounded-tl-none">
+              <div className="abg-orange-400 mx-auto w-fit overflow-hidden rounded-[6rem] rounded-br-none rounded-tl-none transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 ">
                 <img src={about} />
               </div>
             </div>
@@ -183,8 +223,9 @@ const About = () => {
                 </figure>
               </div>
             </div>
+
             <div>
-              <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
+              <div id="jo" className="transition-transform duration-500 ease-in-out transform translate-y-4 lg:translate-y-0 text-base leading-7 text-gray-700 lg:max-w-lg" style={{ transform: `translateY(${scrollPosition1*0.0200}px)` }}>
                 <p className="text-base font-semibold leading-7 text-yellow-400">
                   wisdom values
                 </p>
@@ -197,13 +238,13 @@ const About = () => {
                     ful life and equal times you have a time with your religion
                     then time for fun then time for work and study.
                   </p>
-             
                 </div>
               </div>
-              <dl className="mt-10 grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4">
+
+              <dl id="po" className="transition-transform duration-1000 ease-in-out delay-700 transform translate-y-4 lg:translate-y-0   grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4" style={{ transform: `translateY(${scrollPosition1 *0.0200}px)` }}>
                 <div>
                   <dt className="text-sm font-semibold leading-6 text-gray-600">
-                   Membres
+                    Membres
                   </dt>
                   <dd className="mt-2 text-3xl font-bold leading-10 tracking-tight text-gray-900">
                     2.3 K
@@ -234,7 +275,7 @@ const About = () => {
                   </dd>
                 </div>
               </dl>
-              <div className="mt-10 flex">
+              <div className="mt-16 flex">
                 <a
                   href="#"
                   className="text-base font-semibold leading-7 text-yellow-500"

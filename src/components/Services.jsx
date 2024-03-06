@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Services = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  
   const services = [
     {
       id: 1,
@@ -84,7 +97,7 @@ const Services = () => {
     },
   ];
   return (
-    <section className="md:px-14 px-4 py-10 max-w-screen-2xl mx-auto ">
+    <section id="service" className="md:px-14 px-4 py-10 max-w-screen-2xl mx-auto ">
       <div className="text-center my-8">
         <h2 className="text-4xl font-semibold mb-2 text-neutralDGrey">
           Nos partenaires
@@ -94,7 +107,8 @@ const Services = () => {
         </p>
       </div>
 
-      <div className=" grid items-center py-10 justify-between grid-cols-2 gap-4 mb-4 space-x-3 mx-auto mt-2 md:mt-2 md:grid-cols-4  ">
+
+      <div className= {`grid items-center py-10 animate-bounce  justify-between grid-cols-2 gap-4 mb-4 space-x-3 mx-auto mt-2 md:mt-2 md:grid-cols-4 transition-transform duration-700 ease-in-out  ${scrollPosition > 0 ? "-translate-y-4" : ""}` } >
         {/* <div className="my-12 flex flex-wrap justify-between items-center  gap-8"> */}
         <div className="bg-white h-12 flex shadow-lg items-center justify-center">
           <img
@@ -129,7 +143,7 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="relative mt-4 mx-auto h-full px-4 md:pb-8 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
+      <div className={`relative mt-4 mx-auto h-full px-4 md:pb-8 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8  transition-transform duration-700 ease-in-out  ${scrollPosition > 10 ? "-translate-y-4" : ""}`}>
         <div className="text-center my-8">
           <h2 className="text-4xl font-semibold mb-2 text-neutralDGrey">
             Nos services
@@ -166,3 +180,4 @@ const Services = () => {
 };
 
 export default Services;
+

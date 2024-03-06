@@ -58,7 +58,7 @@ const NavBar = () => {
           <ul className=" md:flex mt-2 space-x-12 hidden ">
             {navItems.map(({ link, path }) => (
               <Link
-                className="block text-base text-gray-900 hover:text-teal-600 first:font-medium "
+                className="block text-base text-gray-900 cursor-pointer hover:text-teal-600 first:font-medium "
                 to={path}
                 spy={true}
                 smooth={true}
@@ -72,7 +72,7 @@ const NavBar = () => {
           </ul>
 
           <div className="space-x-12 hidden lg:flex items-center ">
-            <a
+            {/* <a
               href="/"
               className="hidden lg:flex items-center text-neutralPrimary hover:text-gray-900 "
             >
@@ -81,7 +81,7 @@ const NavBar = () => {
 
             <button className="bg-neutralPrimary text-white py-2 px-4 transition-all duration-300 rounded-lg hover:bg-neutralGrey  ">
               Sing Up
-            </button>
+            </button> */}
           </div>
 
           <div className="md:hidden">
@@ -103,6 +103,7 @@ const NavBar = () => {
     isMenuOpen ? "block fixed top-0 right-0" : "hidden"
   }`}
 >
+
   {navItems.map(({ link, path }) => (
     <Link
       className="block text-base text-white hover:text-teal-600 first:font-medium"
